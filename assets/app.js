@@ -129,8 +129,6 @@ const participantConnected = (participant) => {
 
 const participantDisconnected = (participant) => {
   document.getElementById(participant.sid).remove();
-  //meetingRoomNotStarted.style.display = "block";
-  // container.style.display = "none"
   updateParticipantCount();
 };
 
@@ -159,6 +157,5 @@ const disconnect = async () => {
   updateParticipantCount();
 };
 
-//addLocalVideo();
 button.addEventListener('click', connectButtonHandler);
 
