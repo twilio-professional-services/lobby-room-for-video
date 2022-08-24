@@ -9,7 +9,7 @@ Tutorial is available [here](https://www.twilio.com/blogs/video/)
 
     cd lobby-room-app
     npm install
-    cp .env.example .env
+
 
 
 - Create an account in the [Twilio Console](https://www.twilio.com/console).
