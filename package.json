@@ -1,0 +1,23 @@
+{
+  "name": "lobby-room-app",
+  "version": "1.0.0",
+  "description": "Lobby room using Twilio Sync for Twilio Video room before host joins the room",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "twilio-run"
+  },
+  "dependencies": {
+    "@twilio/runtime-handler": "1.2.2",
+    "twilio": "^3.56",
+    "twilio-sync": "^3.1.0"
+  },
+  "devDependencies": {
+    "twilio-run": "^3.4.1"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "author": "",
+  "license": "ISC"
+}
