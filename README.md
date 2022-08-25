@@ -1,6 +1,7 @@
 # Lobby room for Twilio Video Room using Twilio Sync
 
 ## What is it
+
 This application will demonstrate how to add Lobby room to your Twilio video room using Twilio Sync
 
 Tutorial is available [here](https://www.twilio.com/blogs/video/)
@@ -31,7 +32,7 @@ AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
     npm start
 
-Access http://localhost:3000/index.html
+Access http://localhost:3000/index.html# lobby-room-for-video
 
 ### Disclaimer
 

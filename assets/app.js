@@ -8,11 +8,14 @@ const meetingRoomNotStarted = document.getElementById('meetingRoomNotStarted');
 let syncClient;
 let connected = false;
 let room;
+let track;
+
 const addLocalVideo = async () => {
-  const track = await Twilio.Video.createLocalVideoTrack();
+  track = await Twilio.Video.createLocalVideoTrack();
   const video = document.getElementById('local').firstElementChild;
   video.appendChild(track.attach());
 };
+
 const connectButtonHandler = async (event) => {
   event.preventDefault();
   if (!connected) {
@@ -50,9 +53,7 @@ const connect = async (username, roomname, role) => {
     body: JSON.stringify({ username, roomname, role }),
   });
   const data = await response.json();
-  console.log("data-->", data);
   if (data.videoRoom === true) {
-    console.log('video room exists');
     addLocalVideo();
 
     meetingRoomNotStarted.style.display = "none";
@@ -64,7 +65,6 @@ const connect = async (username, roomname, role) => {
     connected = true;
     updateParticipantCount();
   } else {
-    console.log('video room does not exists')
     meetingRoomNotStarted.style.display = "block";
     container.style.display = "none"
     //do not join the meeting room, subscribe to sync
@@ -142,13 +142,12 @@ const trackUnsubscribed = (track) => {
 
 const disconnect = async () => {
   if(syncClient != undefined){                          //Close subscription of sync Document for guests participants
-    var document = await syncClient.document(room.name);
-    document.close();
+    var syncDoc = await syncClient.document(room.name);
+    syncDoc.close();
   }
-  room.localParticipant.tracks.forEach((trackPublication) => {
-    trackPublication.track.stop();
-  });
+  track.stop();
   room.disconnect();
+  document.getElementById('local').style.display = 'none';
   while (container.lastChild.id != 'local') {
     container.removeChild(container.lastChild);
   }
