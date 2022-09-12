@@ -4,7 +4,7 @@
 
 This application will demonstrate how to add Lobby room to your Twilio video room using Twilio Sync
 
-Tutorial is available [here](https://www.twilio.com/blogs/video/)
+Tutorial is available [here](https://www.twilio.com/blog/create-a-video-lobby-feature)
 
 ### Set up
 
